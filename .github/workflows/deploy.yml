@@ -18,13 +18,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore CardLearner/CardLearner/CardLearner.csproj
+        run: dotnet restore CardLearner/CardLearner.csproj
 
       - name: Build
-        run: dotnet build CardLearner/CardLearner/CardLearner.csproj --configuration Release
+        run: dotnet build CardLearner/CardLearner.csproj --configuration Release
 
       - name: Publish
-        run: dotnet publish CardLearner/CardLearner/CardLearner.csproj -c Release -o ./publish
+        run: dotnet publish CardLearner/CardLearner.csproj -c Release -o ./publish
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
