@@ -1,0 +1,120 @@
+﻿.question-block {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-image, .explanation-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.answer-option {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+    .answer-option:hover {
+        background-color: #f0f0f0;
+        border-color: #007bff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: scale(1.02);
+    }
+
+    .answer-option:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(38, 140, 251, 0.25);
+        border-color: #007bff;
+    }
+
+    .answer-option.correct {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .answer-option.incorrect {
+        background-color: #dc3545;
+        color: white;
+    }
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle-explanation,
+.edit-answer,
+.edit-explanation {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-explanation {
+    background-color: #007bff;
+    color: white;
+}
+
+    .toggle-explanation:hover {
+        background-color: #0056b3;
+    }
+
+.edit-answer {
+    background-color: #ffc107;
+    color: white;
+}
+
+.edit-explanation {
+    background-color: #ffc107;
+    color: white;
+}
+
+    .edit-explanation:hover {
+        background-color: #e0a800;
+    }
+
+.edit-answer-form,
+.edit-explanation-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+.correct-answer-select,
+.explanation-textarea {
+    margin-right: 10px;
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.edit-answer-form {
+    display: none;
+}
+
+.edit-explanation-form {
+    display: none;
+}
