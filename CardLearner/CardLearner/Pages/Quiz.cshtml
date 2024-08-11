@@ -1,0 +1,57 @@
+﻿@page "/quiz"
+@model CardLearner.Pages.QuizModel
+
+<h1>Quiz</h1>
+
+@foreach (var question in Model.Questions)
+{
+    <div class="question-block" id="question-@question.Id">
+        <h6 class="card-subtitle mb-2 text-muted">
+            Topic: @question.Topic, Question: @question.Number
+            <a href="@question.Url" target="_blank">Link</a>
+        </h6>
+        <p>@question.Text</p>
+        @if (!string.IsNullOrEmpty(question.ImageUrl))
+        {
+            <img src="@question.ImageUrl" alt="Question Image" class="question-image" />
+        }
+        <div class="options-grid">
+            @foreach (var option in question.Options)
+            {
+                <button type="button" class="answer-option" data-question-id="@question.Id" data-correct-answer="@question.CorrectAnswer">@option</button>
+            }
+        </div>
+        <button type="button" class="edit-answer">Edit</button>
+        <div class="edit-answer-form" style="display:none;">
+            <label for="correct-answer-@question.Id">Correct Answer:</label>
+            <select id="correct-answer-@question.Id" class="correct-answer-select" data-current-answer="@question.CorrectAnswer" data-question-id="@question.Id">
+                @foreach (var option in question.Options)
+                {
+                    <option value="@option" selected="@(option == question.CorrectAnswer)">@option</option>
+                }
+            </select>
+            <button type="button" class="save-answer" data-question-id="@question.Id">Save</button>
+            <div class="edit-explanation-form" style="display:none;">
+                <label for="explanation-@question.Id">Explanation:</label>
+                <textarea id="explanation-@question.Id" class="explanation-textarea" data-question-id="@question.Id">@question.Explanation</textarea>
+                <button type="button" class="save-explanation" data-question-id="@question.Id">Save Explanation</button>
+            </div>
+        </div>
+        <button type="button" class="toggle-explanation">Show Explanation</button>
+        <div class="explanation" style="display:none;">
+            <p>@question.Explanation</p>
+            @if (!string.IsNullOrEmpty(question.ExplanationImageUrl))
+            {
+                <img src="@question.ExplanationImageUrl" alt="Explanation Image" class="explanation-image" />
+            }
+        </div>
+    </div>
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/quiz.css" asp-append-version="true" />
+}
+
+@section Scripts {
+    <script src="~/js/quiz.js" asp-append-version="true"></script>
+}

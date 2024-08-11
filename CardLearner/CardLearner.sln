@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardLearner", "CardLearner\CardLearner.csproj", "{31D8DA85-19FE-45A6-9DFC-CAA488D33EBF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF} = {50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardLearner.Models", "CardLearner.Models\CardLearner.Models.csproj", "{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardLearner.QuestionUpdater", "CardLearner.QuestionUpdater\CardLearner.QuestionUpdater.csproj", "{57717B24-6328-4370-9885-81D8BDA63EA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31D8DA85-19FE-45A6-9DFC-CAA488D33EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D8DA85-19FE-45A6-9DFC-CAA488D33EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D8DA85-19FE-45A6-9DFC-CAA488D33EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D8DA85-19FE-45A6-9DFC-CAA488D33EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50202A7E-4E0D-401F-A6A5-0B5F8E0C28FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57717B24-6328-4370-9885-81D8BDA63EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57717B24-6328-4370-9885-81D8BDA63EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57717B24-6328-4370-9885-81D8BDA63EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57717B24-6328-4370-9885-81D8BDA63EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAA064EF-40AA-4232-873E-7B06949C9DE6}
+	EndGlobalSection
+EndGlobal
