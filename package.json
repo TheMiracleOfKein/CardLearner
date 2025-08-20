@@ -1,0 +1,16 @@
+{
+  "name": "cardlearner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+      "test": "node tests/responsive.test.js"
+    },
+    "devDependencies": {
+      "puppeteer": "^22.0.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs"
+  }

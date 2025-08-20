@@ -2,7 +2,7 @@
     // Handle explanation toggle
     document.querySelectorAll(".toggle-explanation").forEach(function (button) {
         button.addEventListener("click", function () {
-            var explanation = this.nextElementSibling;
+            var explanation = this.closest(".question-block").querySelector(".explanation");
             if (explanation.style.display === "none" || explanation.style.display === "") {
                 explanation.style.display = "block";
                 this.textContent = "Hide Explanation";
@@ -39,7 +39,7 @@
     // Handle edit answer form toggle
     document.querySelectorAll(".edit-answer").forEach(function (button) {
         button.addEventListener("click", function () {
-            var form = this.nextElementSibling;
+            var form = this.closest(".question-block").querySelector(".edit-answer-form");
             if (form.style.display === "none" || form.style.display === "") {
                 form.style.display = "block";
             } else {
