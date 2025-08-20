@@ -14,7 +14,7 @@ namespace CardLearner.QuestionUpdater
         static async Task Main(string[] args)
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\.."));
+            string projectDirectory = Path.GetFullPath(Path.Combine(baseDirectory, "..", "..", ".."));
             string urlsFilePath = Path.Combine(projectDirectory, "urls.txt");
             string questionsDirectory = Path.Combine(projectDirectory, "questions");
             string jsonFilePath = Path.Combine(questionsDirectory, "az-204.json");
