@@ -6,7 +6,7 @@
 function flipFront(button) {
     const cardContainer = button.closest('.card-front');
     cardContainer.classList.add('flipped');
-})
+}
 
 function flipBack(event, button) {
     event.stopPropagation();
