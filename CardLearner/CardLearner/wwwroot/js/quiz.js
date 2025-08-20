@@ -82,7 +82,7 @@
             // Hide the edit form
             this.parentElement.style.display = "none";
 
-            // Optionally, send an AJAX request to update the correct answer on the server side
+            // Send an AJAX request to update the correct answer on the server side
             updateCorrectAnswer(questionId, newCorrectAnswer);
         });
     });
@@ -101,7 +101,7 @@
             // Hide the edit form
             this.parentElement.style.display = "none";
 
-            // Optionally, send an AJAX request to update the explanation on the server side
+            // Send an AJAX request to update the explanation on the server side
             updateExplanation(questionId, newExplanation);
         });
     });
