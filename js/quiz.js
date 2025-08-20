@@ -1,4 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
+    var quizResults = [];
+    var totalQuestions = document.querySelectorAll('.question-block').length;
+
     // Handle explanation toggle
     document.querySelectorAll(".toggle-explanation").forEach(function (button) {
         button.addEventListener("click", function () {
@@ -21,17 +24,34 @@
             var selectedAnswer = this.textContent;
             var options = document.querySelectorAll("#question-" + questionId + " .answer-option");
 
-            if (selectedAnswer === correctAnswer) {
-                options.forEach(function (opt) {
-                    opt.disabled = true;
-                    if (opt.textContent === correctAnswer) {
-                        opt.style.backgroundColor = "green";
-                        opt.style.color = "white";
-                    }
-                });
-            } else {
+            if (quizResults.some(r => r.questionId === parseInt(questionId))) {
+                return;
+            }
+
+            var isCorrect = selectedAnswer === correctAnswer;
+
+            options.forEach(function (opt) {
+                opt.disabled = true;
+                if (opt.textContent === correctAnswer) {
+                    opt.style.backgroundColor = "green";
+                    opt.style.color = "white";
+                }
+            });
+
+            if (!isCorrect) {
                 this.style.backgroundColor = "red";
                 this.style.color = "white";
+            }
+
+            quizResults.push({
+                questionId: parseInt(questionId),
+                selectedAnswer: selectedAnswer,
+                isCorrect: isCorrect
+            });
+
+            if (quizResults.length === totalQuestions) {
+                submitQuizResults(quizResults);
+                showQuizResults(quizResults, totalQuestions);
             }
         });
     });
@@ -106,6 +126,39 @@
         });
     });
 });
+
+function submitQuizResults(results) {
+    fetch('/api/quiz/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(results)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Quiz results submitted:', data);
+        })
+        .catch((error) => {
+            console.error('Error submitting quiz results:', error);
+        });
+}
+
+function showQuizResults(results, total) {
+    var correctCount = results.filter(r => r.isCorrect).length;
+    var resultsDiv = document.getElementById('quiz-results');
+    var scoreParagraph = document.getElementById('quiz-score');
+
+    if (scoreParagraph) {
+        scoreParagraph.textContent = `You answered ${correctCount} out of ${total} questions correctly.`;
+    } else if (resultsDiv) {
+        resultsDiv.textContent = `You answered ${correctCount} out of ${total} questions correctly.`;
+    }
+
+    if (resultsDiv) {
+        resultsDiv.style.display = 'block';
+    }
+}
 
 // Example function to send AJAX request to update correct answer on the server side
 function updateCorrectAnswer(questionId, newCorrectAnswer) {
